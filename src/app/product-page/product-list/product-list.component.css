@@ -1,0 +1,7 @@
+p { 
+    cursor: pointer; 
+    font-family: 'Brush Script MT', 'Brush Script Std', cursive; 
+    font-size: 40px
+}
+
+*:focus {outline:none !important}

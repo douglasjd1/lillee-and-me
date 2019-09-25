@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="font-family: 'Brush Script MT', 'Brush Script Std', cursive;">Contact Us</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <br>
+      <p>Phone</p>
+      <p style="position: absolute; left: 75px">xxx-xxx-xxxx</p> <br><br>
+      <p>Address</p>
+      <p style="position: absolute; left: 75px">xxxx Hardwood Drive</p> <br>
+      <p style="position: absolute; left: 75px">Conway AR, 72034</p> <br><br>
+      <p>Email</p>
+      <p style="position: absolute; left: 75px">something@something.com</p>
+    </div>
+    <div class="col-md-4">
+      <form>
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" name="firstName"> <br>
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" name="lastName"> <br>
+        <label for="email">Email</label>
+        <input type="email" class=form-control id="email" name="email"> <br>
+        <p>Message<p>
+        <textarea name="message" id="message" cols="40" rows="4"></textarea> <br><br>
+        <button type="submit" class="button btn-primary" routerLink="/" (click)="sendMessage()">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>

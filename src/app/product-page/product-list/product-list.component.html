@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Available Products</h3>
+    </div>
+  </div>
+  <div class="row" *ngFor="let p of products" style="cursor: pointer" routerLink="/products/{{p.getId()}}">
+    <div class="col-md-12"> <br>
+      <div class="row">
+        <div class="col-md-8">
+          <p>{{ p.getName() }}</p>
+        </div>
+        <div class="col-md-4" style="text-align: right; color: green">
+          <p>{{ p.getPrice() }}</p>
+        </div>
+      </div>
+      <img bind-src="p.getPhoto()" height="200px">
+    </div>
+  </div>
+</div>

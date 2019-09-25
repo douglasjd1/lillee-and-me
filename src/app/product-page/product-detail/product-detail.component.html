@@ -1,0 +1,8 @@
+<div class="container" *ngIf="product">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>{{ product.getName() }}</h1>
+      <img style="width: 80%" bind-src="product.getPhoto()">
+    </div>
+  </div>
+</div>
