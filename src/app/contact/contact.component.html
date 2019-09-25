@@ -18,14 +18,15 @@
     <div class="col-md-4">
       <form>
         <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName" name="firstName"> <br>
+        <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="fName"> <br>
         <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" name="lastName"> <br>
+        <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lName"> <br>
         <label for="email">Email</label>
-        <input type="email" class=form-control id="email" name="email"> <br>
+        <input type="email" class=form-control id="email" name="email" [(ngModel)]="email"> <br>
         <p>Message<p>
-        <textarea name="message" id="message" cols="40" rows="4"></textarea> <br><br>
-        <button type="submit" class="button btn-primary" routerLink="/" (click)="sendMessage()">Send Message</button>
+        <textarea name="message" id="message" cols="40" rows="4" [(ngModel)]="message"></textarea> <br><br>
+        <button type="submit" class="button btn-primary" (click)="sendMessage()">Send Message</button>
+        <button type="submit" class="button btn-primary" (click)="getMessages()">Get Message</button>
       </form>
     </div>
   </div>
