@@ -20,7 +20,6 @@ import { NewProductFormComponent } from './admin-page/new-product-form/new-produ
 import { AppRoutingModule } from './app-routing-module';
 import { LogInFormComponent } from './log-in-form/log-in-form.component';
 import { ContactComponent } from './contact/contact.component';
-import { CustomOrderFormComponent } from './custom-order-form/custom-order-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +39,6 @@ import { CustomOrderFormComponent } from './custom-order-form/custom-order-form.
     NewProductFormComponent,
     LogInFormComponent,
     ContactComponent,
-    CustomOrderFormComponent
   ],
   imports: [
     BrowserModule,
