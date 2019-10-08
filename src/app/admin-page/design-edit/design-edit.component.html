@@ -1,0 +1,25 @@
+<div class="container" *ngIf="design" style="position: fixed">
+  <div class="row">
+    <div class="col-md-12">
+        <h1>Edit Design</h1>
+        <form>
+            <label for="name">Name</label>
+            <input type="text"  style="width: 345px" class="form-control" id="name" name="name" [(ngModel)]="name"> <br>
+            <label for="price">Price</label>
+            <input type="text" style="width: 345px" class="form-control" id="price" name="price" [(ngModel)]="price"> <br>
+            <label for="size">Size</label> <br>
+            <select name="size" [(ngModel)]="size">
+              <option value="sm">Small</option>
+              <option value="md">Medium</option>
+              <option value="lg">Large</option>
+              <option value="xl">Extra Large</option>
+            </select> <br><br>
+            <p>Description<p>
+            <textarea name="des" id="des" cols="40" rows="4" [(ngModel)]="des"></textarea> <br><br>
+            <button type="button" class="button btn-primary" (click)="uploadPhoto()">Upload Picture</button> <br><br>
+            <button type="button" class="button btn-primary" (click)="saveDesign()">Save</button>
+          </form>
+    </div>
+  </div>
+ 
+</div>

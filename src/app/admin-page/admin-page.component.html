@@ -1,3 +1,15 @@
-<p>
-  admin-page works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <ul class="list-group" style="cursor: pointer">
+        <li class="list-group-item" routerLink='designs' [style.background-color]="designsSelected" (click)="pageChange('designs')">Designs</li>
+        <li class="list-group-item" routerLink='orders' [style.background-color]="ordersSelected" (click)="pageChange('orders')">Orders</li>
+        <li class="list-group-item" routerLink='about-edit' [style.background-color]="aboutSelected" (click)="pageChange('about')">About</li>
+        <li class="list-group-item" routerLink='contact-edit' [style.background-color]="contactSelected" (click)="pageChange('contact')">Contact</li>
+      </ul>
+    </div>
+    <div class="col-md-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

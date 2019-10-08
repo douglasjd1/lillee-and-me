@@ -5,9 +5,7 @@ import { Product } from './product.model';
   providedIn: 'root'
 })
 export class ProductService {
-  products: Product[] = [new Product("1234", "Beautiful Green Aura in Alaska", "This is an example product", "$10.50", "../../../assets/image/example-image.jpg", "medium"),
-                         new Product("4321", "Example Product", "This is an example product", "$11.00", "../../../assets/image/example-image.jpg", "medium")
-  ];
+  private products: Product[] = [new Product('0', 'Example Product', 'This is an example product', '$15.00', "../../assets/image/example-image.jpg", 'md')];
 
   getProduct(id: string) {
     for (var i = 0; i < this.products.length; i++) {
@@ -17,8 +15,13 @@ export class ProductService {
     }
   }
   
-  addProduct(product: Product) {
-    this.products.push(product);
+  getAllProducts() {
+    return this.products;
+  }
+
+  addProduct(name: string, des: string, size: string, price: string) {
+    var id = this.products.length + 1;
+    this.products.push(new Product(id.toString(), name, des, price, '', size));
   }
 
   deleteProduct(product: Product) {
@@ -27,5 +30,13 @@ export class ProductService {
         this.products.splice(i);
       }
     }
+  }
+
+  updateProduct(id: string, name: string, des: string, price: string, size: string) {
+    var product: Product = this.getProduct(id);
+    product.setName(name);
+    product.setDes(des);
+    product.setPrice(price);
+    product.setSize(size);
   }
 }
