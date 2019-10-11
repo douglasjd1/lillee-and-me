@@ -12,7 +12,9 @@ import { Subscription } from 'rxjs';
 export class DesignListComponent implements OnInit {
   designs: Product[];
   constructor(private router: Router, private ps: ProductService) { 
-    
+    this.ps.productsUpdated.subscribe((products) => {
+      this.designs = products;
+    });
    }
 
   ngOnInit() {
@@ -21,6 +23,7 @@ export class DesignListComponent implements OnInit {
   setDesignToEdit(id: string) {
     var p = this.ps.getProduct(id);
     this.ps.setDesignToEditEvent.emit(p);
+    console.log('event emittted');
   }
   
   toNewDesign() {

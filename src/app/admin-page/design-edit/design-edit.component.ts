@@ -9,23 +9,24 @@ import { ProductService } from 'src/app/product-page/product.service';
   styleUrls: ['./design-edit.component.css']
 })
 export class DesignEditComponent implements OnInit {
-  @Input() design: Product;
+  design: Product;
   name: string;
   des: string;
   price: string;
   size: string;
 
   constructor(private route: ActivatedRoute, private ps: ProductService) {
-    
    }
 
   ngOnInit() {
-    
-    
-    this.name = this.design.getName();
-    this.des = this.design.getDes();
-    this.price = this.design.getPrice();
-    this.size = this.design.getSize();
+    this.ps.setDesignToEditEvent.subscribe((product) => {
+      this.design = product;
+      this.name = product.getName();
+      this.des = product.getDes();
+      this.price = product.getPrice();
+      this.size = product.getSize();
+      console.log('event caught');
+    })
   }
 
   saveDesign() {
