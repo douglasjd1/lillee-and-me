@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AboutService } from './about.service';
 
 @Component({
   selector: 'app-about',
@@ -6,12 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  aboutUs: string;
+  aboutOurWork: string;
   page: string = 'about-us';
   aboutUsSelected: string = 'underline';
   aboutOurWorkSelected: string = '';
-  constructor() { }
+  constructor(private as: AboutService) { }
 
   ngOnInit() {
+    this.aboutUs = this.as.getAboutUs();
+    this.aboutOurWork = this.as.getAboutOurWork();
   }
   
   pageChange(page: string) {

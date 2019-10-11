@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/product-page/product.model';
 import { ProductService } from 'src/app/product-page/product.service';
 
@@ -9,28 +9,27 @@ import { ProductService } from 'src/app/product-page/product.service';
   styleUrls: ['./design-edit.component.css']
 })
 export class DesignEditComponent implements OnInit {
-  design: Product;
-  productService: ProductService = new ProductService();
+  @Input() design: Product;
   name: string;
+  des: string;
   price: string;
   size: string;
-  des: string;
-  constructor(private route: ActivatedRoute) { }
+
+  constructor(private route: ActivatedRoute, private ps: ProductService) {
+    
+   }
 
   ngOnInit() {
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.design = this.productService.getProduct(params['id']);
-        this.name = this.design.getName();
-        this.price = this.design.getPrice();
-        this.size = this.design.getSize();
-        this.des = this.design.getDes();
-      }
-    );
+    
+    
+    this.name = this.design.getName();
+    this.des = this.design.getDes();
+    this.price = this.design.getPrice();
+    this.size = this.design.getSize();
   }
 
   saveDesign() {
-    this.productService.updateProduct(this.design.getId(), this.name, this.des, this.price, this.size);
+    this.ps.updateProduct(this.design.getId(), this.name, this.des, this.price, this.size);
   }
 
 }

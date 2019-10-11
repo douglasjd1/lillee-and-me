@@ -31,12 +31,12 @@
 
 /* On mouse-over, add a grey background color */
 .customcheck:hover input ~ .checkmark {
-    background-color: #1c77b4
+    background-color: rgb(255, 248, 150);
 }
 
 /* When the checkbox is checked, add a blue background */
 .customcheck input:checked ~ .checkmark {
-    background-color:#1c77b4;
+    background-color: rgb(255, 248, 150);
     border-radius: 5px;
 }
 
@@ -58,7 +58,7 @@
     top: 5px;
     width: 5px;
     height: 12px;
-    border: solid white;
+    border: solid black;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);

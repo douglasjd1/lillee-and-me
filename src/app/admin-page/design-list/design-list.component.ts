@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/product-page/product.model';
 import { ProductService } from 'src/app/product-page/product.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-design-list',
@@ -10,11 +11,16 @@ import { Router } from '@angular/router';
 })
 export class DesignListComponent implements OnInit {
   designs: Product[];
-  ps: ProductService = new ProductService();
-  constructor(private router: Router) { }
+  constructor(private router: Router, private ps: ProductService) { 
+    
+   }
 
   ngOnInit() {
     this.designs = this.ps.getAllProducts();
+  }
+  setDesignToEdit(id: string) {
+    var p = this.ps.getProduct(id);
+    this.ps.setDesignToEditEvent.emit(p);
   }
   
   toNewDesign() {

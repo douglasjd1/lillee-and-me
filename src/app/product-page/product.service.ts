@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Product } from './product.model';
 
 @Injectable({
@@ -6,7 +6,7 @@ import { Product } from './product.model';
 })
 export class ProductService {
   private products: Product[] = [new Product('0', 'Example Product', 'This is an example product', '$15.00', "../../assets/image/example-image.jpg", 'md')];
-
+  setDesignToEditEvent = new EventEmitter<Product>();
   getProduct(id: string) {
     for (var i = 0; i < this.products.length; i++) {
       if (this.products[i].getId() == id) {
@@ -14,13 +14,12 @@ export class ProductService {
       }
     }
   }
-  
   getAllProducts() {
     return this.products;
   }
-
+  
   addProduct(name: string, des: string, size: string, price: string) {
-    var id = this.products.length + 1;
+    var id = this.products.length;
     this.products.push(new Product(id.toString(), name, des, price, '', size));
   }
 

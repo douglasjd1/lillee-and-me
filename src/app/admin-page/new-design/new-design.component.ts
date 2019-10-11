@@ -14,8 +14,7 @@ export class NewDesignComponent implements OnInit {
   size: string;
   des: string;
   photo: string;
-  ps = new ProductService();
-  constructor(private router: Router) { }
+  constructor(private router: Router, private ps: ProductService) { }
 
   ngOnInit() {
   }

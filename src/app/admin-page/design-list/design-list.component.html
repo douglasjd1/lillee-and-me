@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <button class="btn btn-primary" (click)="toNewDesign()">Add Design</button>
+      <button class="btn btn-primary" (click)="toNewDesign()">New Design</button>
     </div>
-  </div>
+  </div> <br>
   <div class="row">
     <div class="col-md-12">
-      <div class="row" *ngFor="let d of designs" height="100%" routerLink="{{d.getId()}}">
+      <div class="row" *ngFor="let d of designs" height="100%" (click)="setDesignToEdit(d.getId())" style="cursor: pointer">
         <h3 style="font-family: 'Brush Script MT', 'Brush Script Std', cursive;">{{ d.getName() }}</h3> <br>
         <img bind-src="d.getPhoto()" width="100%"> <hr width="100%">
       </div>
